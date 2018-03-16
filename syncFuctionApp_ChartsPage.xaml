@@ -1,0 +1,39 @@
+<?xml version="1.0" encoding="utf-8"?>
+<ContentPage xmlns="http://xamarin.com/schemas/2014/forms" 
+xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml" 
+xmlns:chart="clr-namespace:Syncfusion.SfChart.XForms;assembly=Syncfusion.SfChart.XForms" 
+xmlns:rangenavigator="clr-namespace:Syncfusion.RangeNavigator.XForms;assembly=Syncfusion.SfChart.XForms" 
+xmlns:local="clr-namespace:syncFuctionApp_Charts" x:Class="syncFuctionApp_Charts.syncFuctionApp_ChartsPage">
+   
+            <chart:SfChart x:Name="chart2" HorizontalOptions="FillAndExpand" 
+                VerticalOptions="Start">
+                <chart:SfChart.BindingContext>
+                  <local:ViewModel/>
+                </chart:SfChart.BindingContext>
+                <chart:SfChart.Title>
+                    <chart:ChartTitle Text="Sales Over Achieved" FontSize="20" />
+                </chart:SfChart.Title>
+                <chart:SfChart.Legend>
+                    <chart:ChartLegend  DockPosition="Floating"/>
+                </chart:SfChart.Legend>
+                <chart:SfChart.PrimaryAxis>
+                    <chart:CategoryAxis>
+                        <chart:CategoryAxis.Title>
+                            <chart:ChartAxisTitle Text="Target vs Achievement" />
+                        </chart:CategoryAxis.Title>
+                    </chart:CategoryAxis>
+                </chart:SfChart.PrimaryAxis>
+               
+                <chart:SfChart.Series>
+                  <chart:BarSeries AnimationDuration="4" XBindingPath="Category" YBindingPath="Sales"
+                        ItemsSource="{Binding dataBar1}" EnableAnimation="true">
+                        <chart:BarSeries.YAxis>
+                            <chart:NumericalAxis OpposedPosition="true" ShowMajorGridLines="false"/>
+                        </chart:BarSeries.YAxis>
+                         <chart:BarSeries.DataMarker>
+                            <chart:ChartDataMarker MarkerColor="Black" MarkerBorderColor="Lime" />
+                        </chart:BarSeries.DataMarker>
+                   </chart:BarSeries>
+                </chart:SfChart.Series>
+            </chart:SfChart>
+</ContentPage>
